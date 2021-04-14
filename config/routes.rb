@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   # patch "/articles/:id/update", to: "articles#update", as: "update_articles"
 
   resources :articles
+  resources :comments
 
 end
