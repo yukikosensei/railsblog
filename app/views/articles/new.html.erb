@@ -1,0 +1,18 @@
+<h2>Add new articles</h2>
+<%= form_for :article, url: articles_path do |f| %>
+  <p><%= f.text_field :title, placeholder: 'enter title' %></p>
+  <p><%= f.text_area :body, placeholder: 'enter body text' %></p>
+  <p><%= f.submit %></p>
+<% end %>
+
+
+<h2>Edit</h2>
+<% @articles.each do |article| %>
+  <%= link_to '[Edit]', article_path(article) %>
+  <%= link_to '[delete]', 
+  article_path(article),
+  method: :delete, 
+  data: {confirm: 'Sure?'} %>
+  <p><%= article.title %></p>
+  <p><%= article.body %></p>
+<% end %>
