@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # get "/articles", to: "articles#edit", as: "edit_articles"
   # patch "/articles/:id/update", to: "articles#update", as: "update_articles"
 
-  resources :articles
-  resources :comments
+  resources :articles do
+    resources :comments
+  end
 
 end

@@ -42,3 +42,12 @@ h1 {
   display: block;
   margin: 0 auto;
 }
+
+.comment-name {
+  text-align: center;
+}
+
+.comment {
+  text-align: center;
+
+}
