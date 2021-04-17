@@ -13,10 +13,11 @@
 
   <body>
     <%= image_tag 'lifeinmontreal.png',height:450, class:'topimage'%>
-      <div class="log">
-        <%= link_to "login", new_user_session_path %>  
-        <%= button_to "logout", destroy_user_session_path, method: :delete %> 
+      <div class="d-flex justify-content-end">
+        <%= link_to "login", new_user_session_path, class:'btn btn-outline-danger mx-1' %>  
+        <%= button_to "logout", destroy_user_session_path, method: :delete, class:'btn btn-outline-danger mx-1' %> 
       </div>
+
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     <%= yield %>

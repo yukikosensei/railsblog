@@ -1,10 +1,13 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all.order(created_at: 'desc').page(params[:page]).per(1)
+    @recent_articles = Article.all.order(created_at: 'desc')
   end
 
   def show 
+    @article = Article.find(params[:id])
     @articles = Article.all.order(created_at: 'desc')
+    @recent_articles = Article.all.order(created_at: 'desc')
   end
 
 

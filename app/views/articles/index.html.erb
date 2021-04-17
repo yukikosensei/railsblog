@@ -1,13 +1,19 @@
 
-<% @articles.each do |article| %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+
+    </div>
+    <div class="col-sm">
+    <% @articles.each do |article| %>
   <p class="title"><%= article.title %></p>
   <div class="body"><%= article.body %></div>
 
-  <%= form_for([article, article.comments.build]) do |f| %>
-    <div class="comment"><%= f.text_field :name, placeholder: 'enter your name' %></div>
+ <%= form_for([article, article.comments.build]) do |f| %>  
+  <div class="comment"><%= f.text_field :name, placeholder: 'enter your name' %></div>
     <div class="comment"><%= f.text_area :body, placeholder: 'enter your comment' %></div>
-    <div class="comment"><%= f.submit %></div>
-  <% end %>
+  <div class="comment"><%= f.submit %></div>
+<% end %>
 
   <% if article.comments.any? %>
       <% article.comments.each do |comment| %>
@@ -20,12 +26,17 @@
 <div class="d-flex justify-content-center">
   <%= paginate @articles %>
 </div>
+    </div>
+    <div class="col-sm">
+      ⭐︎Recent articles⭐︎
+      <% @recent_articles.each do |article| %>
+        <div class="title">
+          <%= link_to article.title, article_path(article) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<div class="mb-4">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
+
+
