@@ -3,21 +3,22 @@
     <div class="col-sm">
     </div>
     <div class="col-sm">
-      <p class="title"><%= @article.title %></p>
+      <p class="fs-2 text-center"><%= @article.title %></p>
       <div class="body"><%= @article.body %></div>
+
+      <p class="text-center">Comment</p>
+      <% if @article.comments.any? %>
+        <% @article.comments.each do |comment| %>
+          <p class="text-center"><%= "Name: #{comment.name}" %></p>
+          <p class="text-center"><%= "Comment: #{comment.body}" %></p>
+        <% end %>
+      <% end %>
 
       <%= form_for([@article, @article.comments.build]) do |f| %>  
         <div class="comment"><%= f.text_field :name, placeholder: 'enter your name' %></div>
           <div class="comment"><%= f.text_area :body, placeholder: 'enter your comment' %></div>
         <div class="comment"><%= f.submit %></div>
-      <% end %>
-
-      <% if @article.comments.any? %>
-        <% @article.comments.each do |comment| %>
-          <p><%= comment.name %></p>
-          <p><%= comment.body %></p>
-        <% end %>
-      <% end %>
+      <% end %>      
 
       <%= link_to articles_path do %>
           <div class="text-center my-2">Go back to home</div>

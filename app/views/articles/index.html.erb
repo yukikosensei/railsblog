@@ -1,15 +1,17 @@
-
+<div class="d-flex justify-content-end mx-5">
+        <%= link_to "login", new_user_session_path, class:'btn btn-outline-danger' %>   
+      </div>
 <div class="container">
   <div class="row">
     <div class="col-sm">
     </div>
     <div class="col-sm">
       <% @articles.each do |article| %>
-        <p class="title"><%= article.title %></p>
+        <p class="fs-2 text-center my-5"><%= article.title %></p>
         <div class="body"><%= article.body %></div>        
       <% end %>
 
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center my-5">
         <%= paginate @articles %>
       </div>
     </div>
