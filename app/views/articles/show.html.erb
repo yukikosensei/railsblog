@@ -25,7 +25,7 @@
         <% end %>
     </div>
     <div class="col-sm">
-      ⭐︎Recent articles⭐︎
+      Recent articles
     <% @recent_articles.each do |article| %>
         <div class="title">
           <%= link_to article.title, article_path(article) %>
