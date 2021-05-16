@@ -4,6 +4,9 @@
     </div>
     <div class="col-sm">
       <p class="fs-2 text-center"><%= @article.title %></p>
+      <% if @article.image.attached? %>
+        <%= image_tag @article.image, width:"400px", height:"250px" %>
+      <% end %>
       <div class="body"><%= @article.body %></div>
 
       <p class="text-center">Comment</p>

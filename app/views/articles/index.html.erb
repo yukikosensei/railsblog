@@ -8,7 +8,12 @@
     <div class="col-sm">
       <% @articles.each do |article| %>
         <p class="fs-2 text-center my-5"><%= article.title %></p>
-        <div class="body"><%= article.body %></div>        
+          <% if article.image.attached? %>
+            <p class="text-align-center">
+            <%= image_tag article.image, width:"400px", height:"250px" %>
+            </p>
+          <% end %> 
+        <div class="body"><%= article.body %></div>    
       <% end %>
 
       <div class="d-flex justify-content-center my-5">
